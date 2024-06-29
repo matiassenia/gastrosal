@@ -1,0 +1,33 @@
+{% extends "jobdata/base.html" %}
+
+{% block title %}Gastro Sal{% endblock %}
+
+{% block content %}
+<div class="mt-5">
+    <h1 class="mb-4">Gastro Sal</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Posición</th>
+                <th>Moneda</th>
+                <th>Salario</th>
+                <th>Tipo de contrato</th>
+                <th>Nombre del Restaurante</th>
+                <th>Género</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+                <tr>
+                    <td>{{ item.position }}</td>
+                    <td>{{ item.currency }}</td>
+                    <td>{{ item.salary }}</td>
+                    <td>{{ item.contract_type }}</td>
+                    <td>{{ item.restaurant_name }}</td>
+                    <td>{{ item.gender }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

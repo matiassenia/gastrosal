@@ -1,0 +1,42 @@
+{% extends "jobdata/base.html" %}
+
+{% block title %}Gastro Sal{% endblock %}
+
+{% block content %}
+<div class="mt-5">
+    <h1 class="mb-4">Subí tu salario, ayuda a mejorar la industria para todos</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.position.label_tag }}
+            {{ form.position }}
+        </div>
+        <div class="form-group">
+            {{ form.currency.label_tag }}
+            {{ form.currency }}
+        </div>
+        <div class="form-group">
+            {{ form.category.label_tag }}
+            {{ form.category }}
+        </div>
+        <div class="form-group">
+            {{ form.salary.label_tag }}
+            {{ form.salary }}
+        </div>
+        <div class="form-group">
+            {{ form.contract_type.label_tag }}
+            {{ form.contract_type }}
+        </div>
+        <div class="form-group">
+            {{ form.restaurant_name.label_tag }}
+            {{ form.restaurant_name }}
+        </div>
+        <div class="form-group">
+            {{ form.gender.label_tag }}
+            {{ form.gender }}
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+{% endblock %}
+
