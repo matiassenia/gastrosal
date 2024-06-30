@@ -2,11 +2,11 @@
 {% load form_tags %}
 
 
-{% block title %}Gastro Sal{% endblock %}
+{% block title %}GastroSal{% endblock %}
 
 {% block content %}
 <div class="mt-5">
-    <h1 class="mb-4">Gastro Sal</h1>
+    <h1 class="mb-4">GastroSal</h1>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -23,7 +23,15 @@
                 <tr>
                     <td>{{ item.position }}</td>
                     <td>{{ item.currency }}</td>
-                    <td>{{ item.salary }}</td>
+                    <td>
+                        {% if item.currency == "ARS" %}
+                            $ {{ item.salary }}
+                        {% elif item.currency == "USD" %}
+                            U$D {{ item.salary }}
+                        {% else %}
+                            {{ item.salary }}
+                        {% endif %}
+                    </td>
                     <td>{{ item.contract_type }}</td>
                     <td>{{ item.restaurant_name }}</td>
                     <td>{{ item.gender }}</td>

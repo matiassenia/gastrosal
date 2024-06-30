@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator 
 
 class JobData(models.Model):
     POSITION_CHOICES = [
@@ -34,10 +35,10 @@ class JobData(models.Model):
     
     position = models.CharField(max_length=50, choices=POSITION_CHOICES)
     currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES)
-    salary = models.DecimalField(max_digits=10, decimal_places=2)
+    salary = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(1)])
     contract_type = models.CharField(max_length=100, choices=CONTRACT_CHOICES)
     restaurant_name = models.CharField(max_length=100)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     
     def __str__(self):
-        return f'{self.position} - {self.salary} {self.currency}'
+        return f'{self.position} - ${self.salary} {self.currency}'

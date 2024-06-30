@@ -3,6 +3,9 @@ from .forms import JobDataForm  # Importa correctamente el formulario
 from .models import JobData  # Corrige la importación del modelo JobData
 from django.db.models import Count
 
+from datetime import datetime
+
+
 def upload_data(request):
     if request.method == 'POST':
         form = JobDataForm(request.POST)
@@ -16,4 +19,11 @@ def upload_data(request):
 def data_list(request):
     data = JobData.objects.all()
     category_counts = JobData.objects.values('position').annotate(count=Count('position'))
-    return render(request, 'jobdata/data_list.html', {'data': data, 'category_counts': category_counts})
+    
+    now = datetime.now()
+    context = {
+        'data': data,
+        'date': now.strftime("%d/%m/%Y"),
+        'time': now.strftime("%H:%M:%S")
+    }
+    return render(request, 'jobdata/data_list.html', context)
