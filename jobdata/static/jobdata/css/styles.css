@@ -3,6 +3,9 @@
 body {
     background-color: #121212;
     color: #ffffff;
+    margin: 0;
+    padding: 0;
+    
     
 }
 
@@ -27,11 +30,13 @@ body {
 .table {
     background-color: #1e1e1e;
     color: #ffffff;
+    
 }
 
 .table thead th {
     background-color: #1e1e1e;
     color: #ffffff;
+    
     
 }
 
@@ -41,7 +46,7 @@ body {
 }
 
 .table tbody tr:nth-of-type(odd) {
-    background-color: #2a2a2a;
+    background-color: #1e1e1e;
 }
 
 .table tbody tr:nth-of-type(even) {
@@ -49,7 +54,7 @@ body {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #2a2a2a;
+    background-color: #1e1e1e;
 }
 
 .table-striped tbody tr:nth-of-type(even) {
