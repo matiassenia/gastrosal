@@ -1,0 +1,126 @@
+
+/* styles.css */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    
+}
+
+.container {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.footer {
+    background-color: #1e1e1e;
+}
+
+.bg-light {
+    background-color: #333 !important;
+}
+
+.text-muted {
+    color: #bbbbbb !important;
+}
+
+.table {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.table thead th {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    
+}
+
+.table tbody tr {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.table tbody tr:nth-of-type(odd) {
+    background-color: #2a2a2a;
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: #1e1e1e;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #2a2a2a;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #1e1e1e;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #333;
+}
+
+
+/* Estilos adicionales para otros elementos en modo oscuro */
+.navbar, .navbar-light .navbar-nav .nav-link {
+    background-color: #333;
+    color: #fff;
+}
+
+.card {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+}
+
+.card-header, .card-footer {
+    background-color: #444;
+    color: #fff;
+}
+
+.btn {
+    background-color: #444;
+    color: #fff;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+
+
+/* Clearer text for form fields */
+input, select, textarea {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #aaaaaa;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #555;
+    background-color: #333;
+}
+
+label {
+    color: #dddddd;
+}
+
+.form-control {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+.form-control:focus {
+    background-color: #333;
+    color: #ffffff;
+}
