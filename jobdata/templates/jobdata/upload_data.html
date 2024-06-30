@@ -5,7 +5,7 @@
 {% block content %}
 <div class="mt-5">
     <h1 class="mb-4">Subí tu salario, ayuda a mejorar la industria para todos</h1>
-    <form method="post">
+    <form method="post" class="form-horizontal">
         {% csrf_token %}
         <div class="form-group">
             {{ form.position.label_tag }}
@@ -39,4 +39,3 @@
     </form>
 </div>
 {% endblock %}
-

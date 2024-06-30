@@ -13,3 +13,11 @@ class JobDataForm(forms.ModelForm):
             'restaurant_name': 'Nombre del Restaurante/Establecimiento',
             'gender': 'Género',
         }
+        widgets = {
+            'position': forms.Select(attrs={'class': 'form-control'}),
+            'currency': forms.Select(attrs={'class': 'form-control'}),
+            'salary': forms.NumberInput(attrs={'placeholder': '$', 'class': 'form-control'}),
+            'contract_type': forms.Select(attrs={'class': 'form-control'}),
+            'restaurant_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'gender': forms.Select(attrs={'class': 'form-control'}),
+        }        
