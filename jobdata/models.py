@@ -24,7 +24,7 @@ class JobData(models.Model):
     CONTRACT_CHOICES = [
         ('100% en blanco', 'En blanco(Trabajo 100% registrado)'),
         ('100% en negro', 'En negro(Trabajo sin registrar)'),
-        ('Media jornada registrada / Media jornada sin registrar', 'Media jornada de trabajo registrado, la otra media jornada sin registrar)')
+        ('Media jornada registrada / Media jornada sin registrar', 'Media jornada de trabajo registrado, la otra media jornada sin registrar')
     ]
     
     GENDER_CHOICES = [

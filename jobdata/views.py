@@ -1,12 +1,18 @@
 from django.shortcuts import render, redirect
-from .forms import JobDataForm 
-from .models import JobData  
+from .forms import JobDataForm, JobDataFilterForm
+from .models import JobData
 from django.db.models import Count
-from datetime import datetime
-from .forms import JobDataFilterForm 
-
+from django.utils import timezone
 
 def upload_data(request):
+    now = timezone.now()
+    data_count = JobData.objects.count()
+    context = {
+        'date': now.strftime("%d/%m/%Y"),
+        'time': now.strftime("%H:%M:%S"),
+        'data_count': data_count,
+    }
+    
     if request.method == 'POST':
         form = JobDataForm(request.POST)
         if form.is_valid():
@@ -14,9 +20,8 @@ def upload_data(request):
             return redirect('data_list')
     else:
         form = JobDataForm()
-    context ={
-        'form':form,
-    }
+    
+    context['form'] = form
     return render(request, 'jobdata/upload_data.html', context)
 
 def data_list(request):
@@ -27,6 +32,7 @@ def data_list(request):
     # Procesar el formulario de filtro si se envía
     if request.method == 'GET':
         form = JobDataFilterForm(request.GET)
+        
         if form.is_valid():
             position = form.cleaned_data.get('position')
             currency = form.cleaned_data.get('currency')
@@ -39,17 +45,15 @@ def data_list(request):
                 data = data.filter(currency=currency)
             if contract_type:
                 data = data.filter(contract_type=contract_type)
-
     else:
         form = JobDataFilterForm()
 
-    now = datetime.now()
+    now = timezone.now()
     context = {
         'data': data,
-        'data_count':data_count,
+        'data_count': data_count,
         'form': form,
         'date': now.strftime("%d/%m/%Y"),
         'time': now.strftime("%H:%M:%S")
     }
     return render(request, 'jobdata/data_list.html', context)
-    
