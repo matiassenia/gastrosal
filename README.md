@@ -1,17 +1,23 @@
 # GastroSal
 
-## Descripción del Proyecto
-GastroSal es una aplicación web desarrollada con Django, diseñada para gestionar datos laborales en la industria gastronómica. Permite a los usuarios cargar, visualizar y filtrar entradas de datos laborales según criterios como posición laboral, moneda, salario, tipo de contrato, nombre del restaurante y género.
+**GastroSal** es una aplicación web desarrollada con Django que permite a los usuarios cargar, visualizar y filtrar datos laborales en la industria gastronómica. Los usuarios pueden ingresar información sobre puestos de trabajo, salarios, tipos de contrato, nombres de restaurantes y género. La aplicación proporciona una interfaz amigable para la gestión y visualización de estos datos, permitiendo a los usuarios realizar búsquedas específicas y obtener una visión general de los salarios registrados en la industria.
 
-## Funcionalidades Clave
-- **Carga de Datos:** Los usuarios pueden enviar entradas de datos laborales incluyendo posición, moneda, salario, tipo de contrato, nombre del restaurante y género.
-- **Listado de Datos:** Muestra una lista de las entradas de datos laborales cargadas con opciones para filtrar por posición, moneda y tipo de contrato.
-- **Filtrado de Datos:** Proporciona funcionalidades de búsqueda utilizando campos de filtro para refinar la visualización de datos según los requisitos específicos del usuario.
-- **Diseño Responsivo:** Garantiza la usabilidad en diferentes dispositivos y tamaños de pantalla, manteniendo una experiencia fácil de usar.
+## Características Principales
+
+- **Carga de Datos**: Los usuarios pueden ingresar información sobre sus trabajos en la industria gastronómica, incluyendo puesto, salario, tipo de contrato, nombre del restaurante y género.
+- **Visualización de Datos**: Los datos ingresados se pueden ver en una lista, con la posibilidad de aplicar filtros para búsquedas específicas.
+- **Filtrado de Datos**: Los usuarios pueden filtrar los datos por puesto, moneda, y tipo de contrato.
+- **Formato de Salario**: Los salarios se muestran en el formato adecuado según la moneda seleccionada (ARS o USD).
+- **Contador de Datos**: La aplicación muestra el número total de salarios registrados.
+- **Fecha y Hora de Actualización**: La página muestra la fecha y hora de la última actualización de los datos.
+- **Interfaz de Administración**: Una interfaz de administración para gestionar y modificar los datos existentes.
 
 ## Tecnologías Utilizadas
-- **Django:** 
-- **Bootstrap:** 
-- **HTML/CSS:** 
-- **JavaScript:** 
+
+- **Django**
+- **Bootstrap**
+- **PostgreSQL**
+- **Gunicorn** 
+- **Nginx**
+
 
