@@ -1,5 +1,5 @@
 {% extends "jobdata/base.html" %}
-{% load form_tags %}
+{% load form_tags custom_filters %}
 
 {% block title %}Lista de Datos - GastroSal{% endblock %}
 
@@ -8,7 +8,7 @@
     <div>
         <h1>GastroSal</h1>
         <h2>Listado de Datos</h2>
-    </h1>
+    </div>
     <!-- Formulario de filtro -->
     <form method="GET" class="form-inline mb-4">
         {{ form.position }}
@@ -38,9 +38,9 @@
                             <td>{{ item.currency }}</td>
                             <td>
                                 {% if item.currency == "ARS" %}
-                                    $ {{ item.salary }}
+                                    {{ item.salary|currency_format }}
                                 {% elif item.currency == "USD" %}
-                                    U$D {{ item.salary }}
+                                    {{ item.salary|currency_format }}
                                 {% else %}
                                     {{ item.salary }}
                                 {% endif %}

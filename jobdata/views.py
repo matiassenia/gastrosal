@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .forms import JobDataForm  # Importa correctamente el formulario
-from .models import JobData  # Corrige la importación del modelo JobData
+from .forms import JobDataForm 
+from .models import JobData  
 from django.db.models import Count
 from datetime import datetime
 from .forms import JobDataFilterForm 
@@ -22,6 +22,7 @@ def upload_data(request):
 def data_list(request):
     data = JobData.objects.all()
     category_counts = JobData.objects.values('position').annotate(count=Count('position'))
+    data_count = data.count()
     
     # Procesar el formulario de filtro si se envía
     if request.method == 'GET':
@@ -45,6 +46,7 @@ def data_list(request):
     now = datetime.now()
     context = {
         'data': data,
+        'data_count':data_count,
         'form': form,
         'date': now.strftime("%d/%m/%Y"),
         'time': now.strftime("%H:%M:%S")
