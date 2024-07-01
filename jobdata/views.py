@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from .forms import JobDataForm  # Importa correctamente el formulario
 from .models import JobData  # Corrige la importación del modelo JobData
 from django.db.models import Count
-
 from datetime import datetime
+from .forms import JobDataFilterForm 
 
 
 def upload_data(request):
@@ -23,10 +23,31 @@ def data_list(request):
     data = JobData.objects.all()
     category_counts = JobData.objects.values('position').annotate(count=Count('position'))
     
+    # Procesar el formulario de filtro si se envía
+    if request.method == 'GET':
+        form = JobDataFilterForm(request.GET)
+        if form.is_valid():
+            position = form.cleaned_data.get('position')
+            currency = form.cleaned_data.get('currency')
+            contract_type = form.cleaned_data.get('contract_type')
+
+            # Aplicar filtros si los campos no están vacíos
+            if position:
+                data = data.filter(position=position)
+            if currency:
+                data = data.filter(currency=currency)
+            if contract_type:
+                data = data.filter(contract_type=contract_type)
+
+    else:
+        form = JobDataFilterForm()
+
     now = datetime.now()
     context = {
         'data': data,
+        'form': form,
         'date': now.strftime("%d/%m/%Y"),
         'time': now.strftime("%H:%M:%S")
     }
     return render(request, 'jobdata/data_list.html', context)
+    
