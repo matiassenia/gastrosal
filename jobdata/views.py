@@ -14,7 +14,10 @@ def upload_data(request):
             return redirect('data_list')
     else:
         form = JobDataForm()
-    return render(request, 'jobdata/upload_data.html', {'form': form})
+    context ={
+        'form':form,
+    }
+    return render(request, 'jobdata/upload_data.html', context)
 
 def data_list(request):
     data = JobData.objects.all()

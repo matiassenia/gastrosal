@@ -5,39 +5,41 @@
 {% block title %}GastroSal{% endblock %}
 
 {% block content %}
-<div class="mt-5">
+<div class="container-fluid mt-5">
     <h1 class="mb-4">GastroSal</h1>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Puesto</th>
-                <th>Moneda</th>
-                <th>Salario </th>
-                <th>Tipo de contrato</th>
-                <th>Nombre del Restaurante</th>
-                <th>Género</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in data %}
+    <div class="table-responsive">
+        <table class="table table-borderer table-hover table-sm">
+            <thead >
                 <tr>
-                    <td>{{ item.position }}</td>
-                    <td>{{ item.currency }}</td>
-                    <td>
-                        {% if item.currency == "ARS" %}
-                            $ {{ item.salary }}
-                        {% elif item.currency == "USD" %}
-                            U$D {{ item.salary }}
-                        {% else %}
-                            {{ item.salary }}
-                        {% endif %}
-                    </td>
-                    <td>{{ item.contract_type }}</td>
-                    <td>{{ item.restaurant_name }}</td>
-                    <td>{{ item.gender }}</td>
+                    <th>Puesto</th>
+                    <th>Moneda</th>
+                    <th>Salario </th>
+                    <th>Tipo de contrato</th>
+                    <th>Nombre del Restaurante</th>
+                    <th>Género</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                    <tr>
+                        <td>{{ item.position }}</td>
+                        <td>{{ item.currency }}</td>
+                        <td>
+                            {% if item.currency == "ARS" %}
+                                $ {{ item.salary }}
+                            {% elif item.currency == "USD" %}
+                                U$D {{ item.salary }}
+                            {% else %}
+                                {{ item.salary }}
+                            {% endif %}
+                        </td>
+                        <td>{{ item.contract_type }}</td>
+                        <td>{{ item.restaurant_name }}</td>
+                        <td>{{ item.gender }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}

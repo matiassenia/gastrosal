@@ -24,7 +24,7 @@ class JobData(models.Model):
     CONTRACT_CHOICES = [
         ('100% en blanco', 'En blanco(Trabajo 100% registrado)'),
         ('100% en negro', 'En negro(Trabajo sin registrar)'),
-        ('Media jornada registrada / Media jornada sin registrar', 'Miti-Miti(Media jornada de trabajo registrado, la otra media jornada sin registrar)')
+        ('Media jornada registrada / Media jornada sin registrar', 'Media jornada de trabajo registrado, la otra media jornada sin registrar)')
     ]
     
     GENDER_CHOICES = [
@@ -35,7 +35,7 @@ class JobData(models.Model):
     
     position = models.CharField(max_length=50, choices=POSITION_CHOICES)
     currency = models.CharField(max_length=3, choices=CURRENCY_CHOICES)
-    salary = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(1)])
+    salary = models.DecimalField(max_digits=10, decimal_places=0, validators=[MinValueValidator(1)])
     contract_type = models.CharField(max_length=100, choices=CONTRACT_CHOICES)
     restaurant_name = models.CharField(max_length=100)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
