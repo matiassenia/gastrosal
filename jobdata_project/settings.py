@@ -1,8 +1,13 @@
 import os
 from pathlib import Path
+from django.core.wsgi import get_wsgi_application
 from dotenv import load_dotenv
 import dj_database_url
 
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'jobdata_project.settings')
+
+application = get_wsgi_application()
 
 # Cargar variables de entorno desde .env
 load_dotenv()
@@ -15,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bclgmp4z!pk0j4-5+3x6_u*aaa=#fw*6@vmlwq&+nj(5nit6%i'
+SECRET_KEY = ('SECRET_KEY', 'django-insecure-bclgmp4z!pk0j4-5+3x6_u*aaa=#fw*6@vmlwq&+nj(5nit6%i')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['.vercel.app', 'gastrosal.vercel.app/', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['.vercel.app', 'gastrosal.vercel.app', '127.0.0.1', 'localhost']
 
 
 # Application definition
