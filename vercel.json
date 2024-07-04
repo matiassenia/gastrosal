@@ -1,0 +1,33 @@
+{
+    "version": 2,
+    "builds": [
+        { 
+            "src": "jobdata/wsgi.py", 
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "15mb",
+                "runtime": "python3.12",
+                "env": {
+                    "DJANGO_SETTINGS_MODULE": "jobdata.settings"
+                }
+            }
+        },
+        { 
+            "src": "build.sh",
+            "use": "@vercel/static-build",
+            "config": { 
+                "distDir": "jobdata/static/jobdata"
+            } 
+        }    
+    ],
+    "routes": [
+        {
+            "src": "/static/(.*)",
+            "dest": "/jobdata/static/jobdata/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "jobdata/wsgi.py"
+        }
+    ]
+}
