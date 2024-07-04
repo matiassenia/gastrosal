@@ -16,14 +16,14 @@
             "src": "build.sh",
             "use": "@vercel/static-build",
             "config": { 
-                "distDir": "jobdata/static/jobdata"
+                "distDir": "static/jobdata"
             } 
         }    
     ],
     "routes": [
         {
             "src": "/static/(.*)",
-            "dest": "/jobdata/static/jobdata/$1"
+            "dest": "/static/jobdata/$1"
         },
         {
             "src": "/(.*)",
