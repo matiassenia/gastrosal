@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         { 
-            "src": "jobdata/wsgi.py", 
+            "src": "jobdata_project/wsgi.py", 
             "use": "@vercel/python",
             "config": {
                 "maxLambdaSize": "15mb",
@@ -27,7 +27,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "jobdata/wsgi.py"
+            "dest": "jobdata_project/wsgi.py"
         }
     ]
 }
