@@ -78,3 +78,10 @@ DATABASES = {
 # Configuración para Railway:
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gastrosal.settings')
 application = get_wsgi_application()
+
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'jobdata/static'),
+]
