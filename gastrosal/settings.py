@@ -1,25 +1,28 @@
 import os
 from pathlib import Path
 import dj_database_url
+from dotenv import load_dotenv
 from django.core.wsgi import get_wsgi_application
 
 # Define BASE_DIR before reading the .env file
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv()
+
 # Load environment variables from .env file
-dotenv_path = os.path.join(BASE_DIR, '.env')
-if os.path.exists(dotenv_path):
-    with open(dotenv_path, 'r') as f:
-        for line in f:
-            if line.strip() and not line.startswith('#'):
-                key, value = line.strip().split('=', 1)
-                os.environ[key] = value
+#dotenv_path = os.path.join(BASE_DIR, '.env')
+#if os.path.exists(dotenv_path):
+#    with open(dotenv_path, 'r') as f:
+#        for line in f:
+#            if line.strip() and not line.startswith('#'):
+#                key, value = line.strip().split('=', 1)
+#                os.environ[key] = value
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-bclgmp4z!pk0j4-5+3x6_u*aaa=#fw*6@vmlwq&+nj(5nit6%i')
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-bclgmp4z!pk0j4-5+3x6_u*aaa=#fw*6@vmlwq&+nj(5nit6%i')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'True'
 
 ALLOWED_HOSTS = ['localhost', '*']
 CSRF_TRUSTED_ORIGINS = ['https://gastrosal.railway.app']
@@ -127,12 +130,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # CSRF Trusted Origins
-CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', 'https://gastrosal-production.up.railway.app').split(',')
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', 'https://gastrosal.up.railway.app').split(',')
 
 # Extra: Configuración del puerto
-PORT = os.environ.get('PORT', '8000')
+PORT = os.environ.get('PORT', '8080')
 
-ALLOWED_HOSTS.extend(['127.0.0.1', 'localhost', 'gastrosal-production.up.railway.app'])
+ALLOWED_HOSTS.extend(['127.0.0.1', 'localhost', 'gastrosal.up.railway.app'])
 
 # Configuración para Railway:
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gastrosal.settings')
