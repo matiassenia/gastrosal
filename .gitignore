@@ -1,8 +1,7 @@
 .vercel
 vercel.json
 venv
-env
 __pycache__
 db.sqlite3
 staticfiles
-ki
+ki 
