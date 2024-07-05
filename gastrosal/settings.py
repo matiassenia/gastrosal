@@ -128,5 +128,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # CSRF Trusted Origins
-CSRF_TRUSTED_ORIGINS = ['https://gastrosal.vercel.app']
+#CSRF_TRUSTED_ORIGINS = ['https://gastrosal.vercel.app']
 
