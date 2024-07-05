@@ -4,8 +4,7 @@
 source env/bin/activate
 
 # Instalar dependencias
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 # Ejecutar la recopilación de archivos estáticos
-python manage.py collectstatic --noinput
-
+python3 manage.py collectstatic --noinput
