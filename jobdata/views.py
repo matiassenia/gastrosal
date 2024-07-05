@@ -25,15 +25,24 @@ def upload_data(request):
     return render(request, 'jobdata/upload_data.html', context)
 
 def data_list(request):
+    print("Entrando a data_list view")
+    
     data = JobData.objects.all()
+    print(f"Cantidad de datos: {data.count()}")
+    
     category_counts = JobData.objects.values('position').annotate(count=Count('position'))
+    print(f"Category counts: {category_counts}")
+    
     data_count = data.count()
+    
     
     # Procesar el formulario de filtro si se envía
     if request.method == 'GET':
         form = JobDataFilterForm(request.GET)
+        print("Formulario GET recibido")
         
         if form.is_valid():
+            print("Formulario válido")
             position = form.cleaned_data.get('position')
             currency = form.cleaned_data.get('currency')
             contract_type = form.cleaned_data.get('contract_type')
@@ -45,8 +54,11 @@ def data_list(request):
                 data = data.filter(currency=currency)
             if contract_type:
                 data = data.filter(contract_type=contract_type)
+        else:
+            print("Formulario no válido")        
     else:
         form = JobDataFilterForm()
+        print("Formulario GET no recibido")
 
     now = timezone.now()
     context = {
