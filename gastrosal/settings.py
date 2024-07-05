@@ -68,12 +68,23 @@ TEMPLATES = [
 WSGI_APPLICATION = 'gastrosal.wsgi.application'
 
 # Database
+#DATABASES = {
+#    'default': dj_database_url.config(
+#        default=os.environ.get('DATABASE_URL'),
+#        conn_max_age=600,
+#        ssl_require=True,
+#    )
+#}
+
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600,
-        ssl_require=True,
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'TNnisYqbnGOtZUCAeyBVntwqclLDFoTX',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '37944',
+    }
 }
 
 # Password validation
