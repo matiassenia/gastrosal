@@ -6,10 +6,7 @@
             "use": "@vercel/python",
             "config": {
                 "maxLambdaSize": "15mb",
-                "runtime": "python3.12",
-                "env": {
-                    "DJANGO_SETTINGS_MODULE": "jobdata.settings"
-                }
+                "runtime": "python3.12"
             }
         },
         { 
