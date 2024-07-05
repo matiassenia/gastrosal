@@ -21,7 +21,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-bclgmp4z!pk0j4-5+3x6_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = ['localhost', '*']
+CSRF_TRUSTED_ORIGINS = ['https://gastrosal.railway.app']
 
 # Application definition
 INSTALLED_APPS = [
