@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from django.core.wsgi import get_wsgi_application
+#from django.core.wsgi import get_wsgi_application
 import dj_database_url
 
 # Define BASE_DIR before reading the .env file
@@ -21,7 +21,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-bclgmp4z!pk0j
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = os.environ.get('DEBUG', False) == 'True'
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 #['.vercel.app', 'gastrosal.vercel.app', '127.0.0.1', 'localhost']
@@ -36,12 +36,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic'
     'crispy_forms',
     'jobdata',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -116,6 +118,8 @@ USE_TZ = True  # Habilita el uso de la zona horaria
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'jobdata/static'),
 ]
@@ -129,4 +133,16 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # CSRF Trusted Origins
 #CSRF_TRUSTED_ORIGINS = ['https://gastrosal.vercel.app']
+# CSRF Trusted Origins
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', '').split(',')
 
+
+# Extra: Configuración del puerto
+PORT = os.environ.get('PORT', '8000')
+
+ALLOWED_HOSTS.append('127.0.0.1')  # Agrega localhost a los hosts permitidos
+ALLOWED_HOSTS.append('localhost')
+
+# Configuración para vercel:
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gastrosal.settings')
+application = get_wsgi_application()
