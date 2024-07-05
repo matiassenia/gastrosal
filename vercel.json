@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
         { 
-            "src": "jobdata_project/wsgi.py", 
+            "src": "gunicorn gastrosal.wsgi --log-file -", 
             "use": "@vercel/python",
             "config": {
                 "maxLambdaSize": "15mb",
@@ -24,7 +24,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "jobdata_project/wsgi.py"
+            "dest": "gastrosal/wsgi.py"
         }
     ]
 }
