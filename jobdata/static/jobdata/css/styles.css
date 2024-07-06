@@ -38,7 +38,7 @@ body {
 .table {
     background-color: var(--background-medium);
     color: var(--text-light);
-    width: 100%;
+    
 }
 
 .table thead th,
@@ -120,4 +120,14 @@ h1, h2, h3, h4, h5, h6 {
 p {
     text-align: justify;
     line-height: 1.6;
+}
+
+
+/* Espaciado y responsividad */
+.mt-5 {
+    margin-top: 3rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
 }

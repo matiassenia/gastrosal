@@ -4,59 +4,65 @@
 {% block title %}Lista de Datos - GastroSal{% endblock %}
 
 {% block content %}
-<div class="mt-5">
+<div class="container mt-5">
     <a href="{% url 'upload_data' %}" class="text-decoration-none">
-        <h1 class="mb-4">GastroSal</h1>
+        <h1 class="mb-4 text-center">GastroSal</h1>
     </a>
-    <h2 class="mb-4">Lista de datos registrados</h2>
+    <h2 class="mb-4 text-center">Lista de datos registrados</h2>
     <!-- Formulario de filtro -->
-    <form method="GET" class="form-inline mb-4">
-        {{ form.position }}
-        {{ form.currency }}
-        {{ form.contract_type }}
-        <button type="submit" class="btn btn-primary ml-2">Buscar</button>
+    <form method="GET" class="row mb-4">
+        <div class="col-md-3 mb-2">
+            {{ form.position|add_class:"form-control" }}
+        </div>
+        <div class="col-md-3 mb-2">
+            {{ form.currency|add_class:"form-control" }}
+        </div>
+        <div class="col-md-3 mb-2">
+            {{ form.contract_type|add_class:"form-control" }}
+        </div>
+        <div class="col-md-3 mb-2">
+            <button type="submit" class="btn btn-primary w-100">Buscar</button>
+        </div>
     </form>
 
     <!-- Listado de datos filtrados -->
-    <div class="container-fluid mt-5">
-        <div class="table-responsive">
-            <table class="table table-bordered table-hover table-sm">
-                <thead>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Puesto</th>
+                    <th>Moneda</th>
+                    <th>Salario</th>
+                    <th>Tipo de contrato</th>
+                    <!--<th>Nombre del Restaurante</th>-->
+                    <th>Género</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
                     <tr>
-                        <th>Puesto</th>
-                        <th>Moneda</th>
-                        <th>Salario</th>
-                        <th>Tipo de contrato</th>
-                        <!--<th>Nombre del Restaurante</th>-->
-                        <th>Género</th>
+                        <td>{{ item.position }}</td>
+                        <td>{{ item.currency }}</td>
+                        <td>
+                            {% if item.currency == "ARS" %}
+                                ${{ item.salary|currency_format }}
+                            {% elif item.currency == "USD" %}
+                                U$D{{ item.salary|currency_format }}
+                            {% else %}
+                                {{ item.salary }}
+                            {% endif %}
+                        </td>
+                        <td>{{ item.contract_type }}</td>
+                        <!-- #<td>{{ item.restaurant_name }}</td> -->
+                        <td>{{ item.gender }}</td>
                     </tr>
-                </thead>
-                <tbody>
-                    {% for item in data %}
-                        <tr>
-                            <td>{{ item.position }}</td>
-                            <td>{{ item.currency }}</td>
-                            <td>
-                                {% if item.currency == "ARS" %}
-                                    ${{ item.salary|currency_format }}
-                                {% elif item.currency == "USD" %}
-                                    U$D{{ item.salary|currency_format }}
-                                {% else %}
-                                    {{ item.salary }}
-                                {% endif %}
-                            </td>
-                            <td>{{ item.contract_type }}</td>
-                            <!-- #<td>{{ item.restaurant_name }}</td> -->
-                            <td>{{ item.gender }}</td>
-                        </tr>
-                    {% empty %}
-                        <tr>
-                            <td colspan="6">No se encontraron datos.</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+                {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center">No se encontraron datos.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
 {% endblock %}
