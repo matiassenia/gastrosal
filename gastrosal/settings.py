@@ -64,12 +64,12 @@ WSGI_APPLICATION = 'gastrosal.wsgi.application'
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'TNnisYqbnGOtZUCAeyBVntwqclLDFoTX',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '37944',
+        'ENGINE':'django.db.backends.postgresql',
+        'NAME':'railway',
+        'USER':'postgres',
+        'PASSWORD':'TNnisYqbnGOtZUCAeyBVntwqclLDFoTX',
+        'HOST':'monorail.proxy.rlwy.net',
+        'PORT':'37944',
     }
 }
 
