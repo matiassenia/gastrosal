@@ -4,6 +4,7 @@ from .models import JobData
 from django.db.models import Count
 from django.utils import timezone
 
+@method_decorator(csrf_exempt, name='dispatch')
 def upload_data(request):
     now = timezone.now()
     data_count = JobData.objects.count()
