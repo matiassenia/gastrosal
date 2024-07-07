@@ -14,8 +14,8 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-bclgmp4z!pk0j4-5+3x6_u*aaa
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'True'
 
-ALLOWED_HOSTS = ['localhost', '*']
-CSRF_TRUSTED_ORIGINS = ['https://gastrosal.railway.app']
+ALLOWED_HOSTS = ['localhost', 'gastrosal.up.railway.app','*']
+CSRF_TRUSTED_ORIGINS = ['http://*','https://gastrosal.railway.app']
 
 # Application definition
 INSTALLED_APPS = [
@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic',  # corregido: falta una coma
+    'whitenoise.runserver_nostatic', 
     'crispy_forms',
     'jobdata',
 ]
@@ -82,6 +82,8 @@ application = get_wsgi_application()
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'jobdata/static'),
 ]
