@@ -15,7 +15,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-bclgmp4z!pk0j4-5+3x6_u*aaa
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'True'
 
 ALLOWED_HOSTS = ['localhost', '*']
-CSRF_TRUSTED_ORIGINS = ['http://*','https://gastrosal.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://gastrosal.railway.app']
 
 # Application definition
 INSTALLED_APPS = [
@@ -61,8 +61,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gastrosal.wsgi.application'
 
-#DATABASES
 
+#DATABASES = {
+#    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+#}
 
 # Database
 DATABASES = {
