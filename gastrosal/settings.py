@@ -15,7 +15,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-bclgmp4z!pk0j4-5+3x6_u*aaa
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['localhost', '*']
+ALLOWED_HOSTS = ['localhost', '*', 'gastrosal.railway.app']
 CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'https://gastrosal.railway.app']
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
