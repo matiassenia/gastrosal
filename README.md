@@ -21,3 +21,4 @@
 - **Nginx**
 
 
+link Railway: https://gastrosal.up.railway.app/
