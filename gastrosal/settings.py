@@ -9,15 +9,14 @@ load_dotenv()
 # Define BASE_DIR before reading the .env file
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-bclgmp4z!pk0j4-5+3x6_u*aaa=#fw*6@vmlwq&+nj(5nit6%i')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'False').lower() == 'True'
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = ['localhost', '*']
-CSRF_TRUSTED_ORIGINS = ['http://localhost:8000','https://gastrosal.railway.app']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'https://gastrosal.railway.app']
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
 
@@ -65,32 +64,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gastrosal.wsgi.application'
 
-
+# Database configuration
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
-# Database
-#DATABASES = {
-#    'default': {
-#        'ENGINE':'django.db.backends.postgresql',
-#        'NAME':'railway',
-#        'USER':'postgres',
-#        'PASSWORD':'TNnisYqbnGOtZUCAeyBVntwqclLDFoTX',
-#        'HOST':'monorail.proxy.rlwy.net',
-#        'PORT':'37944',
-#    }
-#}
-
-# Password validation, Internationalization, Static files, etc. continue...
-
-# Configuración para Railway:
+# Configuración para Railway
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'gastrosal.settings')
 application = get_wsgi_application()
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'jobdata/static'),
 ]
@@ -114,6 +98,5 @@ LOGGING = {
     },
 }
 
-# En settings.py
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
