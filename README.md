@@ -22,3 +22,5 @@
 
 
 link Railway: https://gastrosal.up.railway.app/
+
+![Captura de Pantalla 2024 12 06 a la(s) 14.02.14](https://postimage.me/images/2024/12/06/Captura-de-Pantalla-2024-12-06-a-las-14.02.14.png)
