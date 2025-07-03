@@ -40,10 +40,12 @@ def data_list(request):
     
     
     # Procesar el formulario de filtro si se envía
-    if request.method == 'GET':
-        form = JobDataFilterForm(request.GET)
+    
+    
+    if request.GET.dict():
         print("Formulario GET recibido")
-        
+        form = JobDataFilterForm(request.GET or None)
+
         if form.is_valid():
             print("Formulario válido")
             position = form.cleaned_data.get('position')

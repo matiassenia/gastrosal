@@ -1,7 +1,6 @@
-.vercel
-vercel.json
-venv
-__pycache__
-db.sqlite3
-staticfiles
-ki 
+env/ 
+__pycache__/ 
+*.pyc 
+*.sqlite3 
+db.sqlite3 
+.DS_Store 
