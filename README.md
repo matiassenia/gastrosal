@@ -1,26 +1,114 @@
-# GastroSal
+# 🍽️ GastroSal
 
-**GastroSal** es una aplicación web desarrollada con Django que permite a los usuarios cargar, visualizar y filtrar datos laborales en la industria gastronómica. Los usuarios pueden ingresar información sobre puestos de trabajo, salarios, tipos de contrato, nombres de restaurantes y género. La aplicación proporciona una interfaz amigable para la gestión y visualización de estos datos, permitiendo a los usuarios realizar búsquedas específicas y obtener una visión general de los salarios registrados en la industria.
+**GastroSal** is a web application built with Django that allows hospitality workers to anonymously and collaboratively share and view salary information.
 
-## Características Principales
+The goal is to promote transparency and create an open database about wages, employment conditions, and roles within the gastronomy sector.
 
-- **Carga de Datos**: Los usuarios pueden ingresar información sobre sus trabajos en la industria gastronómica, incluyendo puesto, salario, tipo de contrato, nombre del restaurante y género.
-- **Visualización de Datos**: Los datos ingresados se pueden ver en una lista, con la posibilidad de aplicar filtros para búsquedas específicas.
-- **Filtrado de Datos**: Los usuarios pueden filtrar los datos por puesto, moneda, y tipo de contrato.
-- **Formato de Salario**: Los salarios se muestran en el formato adecuado según la moneda seleccionada (ARS o USD).
-- **Contador de Datos**: La aplicación muestra el número total de salarios registrados.
-- **Fecha y Hora de Actualización**: La página muestra la fecha y hora de la última actualización de los datos.
-- **Interfaz de Administración**: Una interfaz de administración para gestionar y modificar los datos existentes.
+---
 
-## Tecnologías Utilizadas
+## 🚀 Features
 
-- **Django**
-- **Bootstrap**
-- **PostgreSQL**
-- **Gunicorn** 
-- **Nginx**
+- 📊 Real-time salary visualization by job position.
+- 🔍 Filtering by position, currency, and contract type.
+- 📝 Anonymous salary submission form.
+- 🔒 Admin panel with authentication (Django Admin).
+- 🗃️ PostgreSQL database (or local).
 
+---
 
-link Railway: https://gastrosal.up.railway.app/
+## 🛠️ Technologies
 
-![Captura de Pantalla 2024 12 06 a la(s) 14.02.14](https://postimage.me/images/2024/12/06/Captura-de-Pantalla-2024-12-06-a-las-14.02.14.png)
+- Python 3.13  
+- Django 5.2.3  
+- Bootstrap (via CDN)  
+- PostgreSQL (Railway)  
+- HTML5 & CSS3  
+
+---
+
+## 📷 Screenshots
+
+### Main Page – Submit Salary
+
+![Submit your salary]()
+
+### Filterable Data List
+
+![Data list]()
+
+---
+
+## ⚙️ How to Run the Project
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/matiassenia/gastrosal.git
+cd gastrosal
+```
+
+2. **Create a virtual environment and install dependencies:**
+
+```bash
+python -m venv env
+env\Scripts\activate    # Windows
+# source env/bin/activate  # Linux/Mac
+
+pip install -r requirements.txt
+```
+
+3. **Set up environment variables:**
+
+Create a `.env` file (or set environment variables directly) with the following content:
+
+```
+SECRET_KEY=your_secret_django_key
+DEBUG=True
+ALLOWED_HOSTS=127.0.0.1,localhost
+DATABASE_URL=postgresql://user:password@localhost:5432/gastrosal
+CSRF_TRUSTED_ORIGINS=http://127.0.0.1:8000
+PORT=8000
+```
+
+4. **Apply migrations and create a superuser (optional):**
+
+```bash
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+5. **Run the development server:**
+
+```bash
+python manage.py runserver
+```
+
+---
+
+## ✅ Current Status
+
+- [x] Data submission via form  
+- [x] Filterable list  
+- [x] Functional admin panel  
+- [ ] Custom validations  
+- [ ] List pagination  
+- [ ] Add charts or visualizations  
+
+---
+
+## 🤝 Contributions
+
+Contributions are welcome! Feel free to open issues or fork the repository and propose changes via pull request.
+
+---
+
+## 📬 Contact
+
+Developed by [Matías Senia](https://www.linkedin.com/in/matiassenia/)  
+📧 matiasseniadev@gmail.com
+
+---
+
+## 🧑‍💻 License
+
+This project is open source under the MIT License.
